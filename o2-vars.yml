@@ -1,0 +1,8 @@
+- name: demo on varibale
+  hosts: all
+  vars:
+    URL: yahoo.com
+     tasks:
+       - name: print hello
+         ansible.builtin.debug:
+          msg: "URL = {{URL}}"
