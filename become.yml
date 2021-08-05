@@ -1,7 +1,7 @@
-- name: install nodejs
+- name: install a nodejs
   hosts: all
   tasks:
-    - name: print install nodejs
-      ansible.buildin.yum:
+    - name: install nodejs
+      ansible.builtin.yum:
         name: nodejs
         state: present
