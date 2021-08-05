@@ -1,5 +1,6 @@
 - name: install a nodejs
   hosts: all
+  become: yes
   tasks:
     - name: install nodejs
       ansible.builtin.yum:
