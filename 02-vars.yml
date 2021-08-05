@@ -2,7 +2,7 @@
   hosts: all
   vars:
     URL: yahoo.com
-     tasks:
-       - name: print hello
-         ansible.builtin.debug:
-          msg: "URL = {{URL}}"
+  tasks:
+    - name: print hello
+      ansible.builtin.debug:
+        msg: "URL = {{URL}}"
