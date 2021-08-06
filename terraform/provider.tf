@@ -5,7 +5,7 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket            = "terraform-kp58"
-    key               = "roboshop/ansible/terraform.tfstate"
+    key               = "sample/ansible/terraform.tfstate"
     region            = "us-east-1"
     dynamodb_table    = "terraform"
   }
