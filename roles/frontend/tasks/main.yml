@@ -15,7 +15,7 @@
     remote_src: yes
 
 - name: copy the extracted frontend
-  ansible.builtin.unarchive:
+  ansible.builtin.copy:
     src: /tmp/frontend-main/static
     dest: /usr/share/nginx/html
     remote_src: yes
