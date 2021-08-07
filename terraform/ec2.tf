@@ -26,7 +26,6 @@ resource "aws_route53_record" "records" {
   ttl                       = 300
   records                   = [element(aws_spot_instance_request.cheap_worker.*.private_ip, count.index)]
 }
-
 locals {
   LENGTH    = length(var.COMPONENTS)
 }
