@@ -1,10 +1,12 @@
 resource "aws_instance" "instance" {
-  count                     = local.LENGTH
-  ami                       = "ami-074df373d6bafa625"
-  instance_type             = "t3.micro"
-  vpc_security_group_ids    = ["sg-03871c9a33425a291"]
-  tags                      = {
-    Name                    = element(var.COMPONENTS, count.index)
+  count = local.LENGTH
+  ami = "ami-074df373d6bafa625"
+  instance_type = "t3.micro"
+  vpc_security_group_ids = [
+    "sg-03871c9a33425a291"]
+  tags = {
+    Name = element(var.COMPONENTS, count.index)
+  }
 }
 
 //resource "aws_ec2_tag" "name-tag" {
