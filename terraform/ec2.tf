@@ -1,9 +1,8 @@
-resource "aws_instance" "instance" {
+resource "aws_instance" "instances" {
   count = local.LENGTH
   ami = "ami-074df373d6bafa625"
   instance_type = "t3.micro"
-  vpc_security_group_ids = [
-    "sg-03871c9a33425a291"]
+  vpc_security_group_ids = ["sg-03871c9a33425a291"]
   tags = {
     Name = element(var.COMPONENTS, count.index)
   }
@@ -22,7 +21,7 @@ resource "aws_route53_record" "records" {
   type                      = "A"
   zone_id                   = "Z058717311P9VJRR1I7TD"
   ttl                       = 300
-  records                   = [element(aws_instance.instance.*.private_ip, count.index)]
+  records                   = [element(aws_instance.instances.*.private_ip, count.index)]
 }
 locals {
   LENGTH    = length(var.COMPONENTS)
