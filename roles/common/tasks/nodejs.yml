@@ -1,6 +1,6 @@
-- name: Install nginx
+- name: Install Nodejs
   ansible.builtin.yum:
-    name: [ "nginx", "make", "gcc-c++" ]
+    name: [ "nodejs", "make", "gcc-c++" ]
     state: installed
 
 - name: Add Roboshop Apllictaion user
@@ -23,4 +23,4 @@
   community.general.npm:
     path: /home/roboshop/catalogue
     state: latest
-   become_user: roboshop
+    become_user: roboshop
