@@ -1,7 +1,7 @@
 - name: Install Nodejs
   ansible.builtin.yum:
     name: [ "nodejs", "make", "gcc-c++" ]
-    state: installed
+    state: present
 
 - name: Add Roboshop Apllictaion user
   ansible.builtin.user:
@@ -19,8 +19,8 @@
     owner: roboshop
     group: roboshop
 
-- name: install npm
+- name: Install Catalogue Dependencies
   community.general.npm:
     path: /home/roboshop/catalogue
     state: latest
-    become_user: roboshop
+  become_user: roboshop
