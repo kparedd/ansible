@@ -1,0 +1,6 @@
+- name: demo on tags
+  hosts: localhost
+  tasks:
+    - name: ubuntu task
+      debug:
+        msg: ubuntu task
