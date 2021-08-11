@@ -21,6 +21,6 @@
 
 - name: install npm
   community.general.npm:
-    path: /app/location
+    path: /home/roboshop/catalogue
     state: latest
    become_user: roboshop
