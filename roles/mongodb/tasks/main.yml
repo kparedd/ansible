@@ -18,7 +18,7 @@
 - name: Download and Extract
   include_role:
     name: common
-    tasks_from: download
+    tasks_from: download.yml
 
 
 - name: start MongoDB service
