@@ -24,3 +24,15 @@
     path: /home/roboshop/catalogue
     state: latest
   become_user: roboshop
+
+- name: Update Systemd Configuration
+  ansible.builtin.copy:
+    src: systemd.service
+    dest: /etc/systemd/system/catalogue.service
+
+- name: Restart Catalogue service
+  ansible.builtin.systemd:
+    name: catalogue
+    state: restarted
+    enabled: yes
+    daemon_reload: yes
