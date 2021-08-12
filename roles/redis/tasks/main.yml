@@ -1,0 +1,29 @@
+- name: configure Redis Repos
+  ansible.builtin.yum:
+    name: http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+    state: present
+
+- name: Install Redis
+  yum:
+    name: redis
+    enablerepo: remi
+    state: present
+
+- name: Change line Address of Redis Config
+  ansible.builtin.replace:
+    path: /etc/redis.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0
+
+- name: Restart Catalogue service
+  ansible.builtin.systemd:
+    name: catalogue
+    state: restarted
+    enabled: yes
+    daemon_reload: yes
+
+- name: start Redis service
+  ansible.builtin.systemd:
+    name: redis
+    state: started
+    enabled: yes
