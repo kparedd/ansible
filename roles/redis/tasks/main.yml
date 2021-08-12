@@ -15,12 +15,6 @@
     regexp: '127.0.0.1'
     replace: '0.0.0.0
 
-- name: Restart Catalogue service
-  ansible.builtin.systemd:
-    name: catalogue
-    state: restarted
-    enabled: yes
-    daemon_reload: yes
 
 - name: start Redis service
   ansible.builtin.systemd:
