@@ -25,3 +25,10 @@
   tags: redis
   roles:
     - redis
+
+- name: roboshop User setup
+  hosts: USER
+  become: yes
+  tags: user
+  roles:
+    - user
