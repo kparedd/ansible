@@ -11,24 +11,24 @@
   include_tasks:
     file: download.yml
 
-- name: copy the extracted catalogue
+- name: copy the extracted {{COMPONENT}}
   ansible.builtin.copy:
-    src: /tmp/catalogue-main/
-    dest: /home/roboshop/catalogue
+    src: /tmp/{{COMPONENT}}-main/
+    dest: /home/roboshop/{{COMPONENT}}
     remote_src: yes
     owner: roboshop
     group: roboshop
 
-- name: Install Catalogue Dependencies
+- name: Install {{COMPONENT}} Dependencies
   community.general.npm:
-    path: /home/roboshop/catalogue
+    path: /home/roboshop/{{COMPONENT}}
     state: latest
   become_user: roboshop
 
 - name: Update Systemd Configuration
   ansible.builtin.copy:
     src: systemd.service
-    dest: /etc/systemd/system/catalogue.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
 
 - name: Restart Catalogue service
   ansible.builtin.systemd:
