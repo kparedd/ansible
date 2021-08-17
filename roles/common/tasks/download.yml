@@ -6,7 +6,7 @@
   include_tasks:
     file: download-from-github.yml
 
--- name: Delete old app code
+- name: Delete old app code
   file:
     path: /home/roboshop/{COMPONENT}
     state: absent
