@@ -10,6 +10,7 @@
 - name: Install Python Depencency
   pip:
     requirements: /home/roboshop/{{COMPONENT}}/requirements.txt
+    executable: pip3
 
 - name: print
   debug:
