@@ -7,7 +7,7 @@
   include_tasks:
     file: download.yml
 
-- name: Install Python Depencencies
+- name: Install Python Depencency
   pip:
     requirements: /home/roboshop/{{COMPONENT}}/requirements.txt
     executable: pip3
