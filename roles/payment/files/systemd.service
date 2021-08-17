@@ -1,5 +1,5 @@
 [Unit]
-Description=Payment Servic
+Description=Payment Service
 
 [Service]
 User=root
