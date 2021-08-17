@@ -1,0 +1,21 @@
+- name: Install Maven
+  ansible.builtin.yum:
+    name: maven
+    state: present
+
+- name: Download app code from github & Add app user
+  include_tasks:
+    file: download-from-github.yml
+
+- name: Compile the packages
+  shell: mvn clean package && mv target/shipping-1.0.jar shipping.jar
+  args:
+    chdir: /home/roboshop/{{COMPONENT}}
+
+- name: Setup SystemD
+  include_tasks:
+    file: setup-systemd.yml
+
+- name: Install Node Exporter
+  include_tasks:
+    file: node-exporter.yml
