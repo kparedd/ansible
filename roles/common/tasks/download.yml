@@ -19,3 +19,8 @@
     remote_src: yes
     owner: roboshop
     group: roboshop
+
+- name: Creates directory
+  file:
+    path: /home/roboshop/{{COMPONENT}}
+    state: directory
