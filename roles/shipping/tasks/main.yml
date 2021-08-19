@@ -1,4 +1,4 @@
-- name: Catalogue setup
+- name: Shipping setup
   include_role:
     name: common
     tasks_from: java
