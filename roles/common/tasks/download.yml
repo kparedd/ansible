@@ -9,7 +9,7 @@
 
 - name: Delete old app code
   file:
-    path: /home/roboshop/{COMPONENT}
+    path: /home/roboshop/{{COMPONENT}}
     state: absent
 
 - name: copy the extracted {{COMPONENT}}
@@ -19,8 +19,3 @@
     remote_src: yes
     owner: roboshop
     group: roboshop
-
-- name: Creates directory
-  file:
-    path: /home/roboshop/{{COMPONENT}}
-    state: directory
