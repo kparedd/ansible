@@ -8,7 +8,7 @@
     file: download-from-github.yml
 
 - name: Delete old app code
-  file:
+  ansible.builtin.file:
     path: /home/roboshop/{{COMPONENT}}
     state: absent
 
@@ -19,7 +19,8 @@
     remote_src: yes
     owner: roboshop
     group: roboshop
-- name: Create a directory if it does not exist
+
+- name: Create a directory
   ansible.builtin.file:
-    path: /home/roboshop/shipping
+    path: /home/roboshop/{{COMPONENT}}
     state: directory
