@@ -2,7 +2,7 @@
   ansible.builtin.copy:
     src: systemd.service
     dest: /etc/systemd/system/{{COMPONENT}}.service
-   notify: Restart Service - handler
+   notify: Restart Service - handlers
 
 - name: Restart {{COMPONENT}} service
   ansible.builtin.systemd:
