@@ -5,7 +5,7 @@
 
 - name: Download app code from github & Add app user
   include_tasks:
-    file: download-from-github.yml
+    file: download.yml
 
 - name: Compile the packages
   shell: mvn clean package && mv target/shipping-1.0.jar shipping.jar

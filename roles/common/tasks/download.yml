@@ -15,7 +15,7 @@
 - name: copy the extracted {{COMPONENT}}
   ansible.builtin.copy:
     src: /tmp/{{COMPONENT}}-main/
-    dest: /home/roboshop/{{COMPONENT}}
+    dest: /home/roboshop/{{COMPONENT}}/
     remote_src: yes
     owner: roboshop
     group: roboshop
