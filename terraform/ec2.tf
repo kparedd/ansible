@@ -4,7 +4,7 @@ resource "aws_instance" "instances" {
   instance_type = "t3.micro"
   vpc_security_group_ids = ["sg-03871c9a33425a291"]
   tags = {
-    Name = element(var.COMPONENTS, count.index)
+    Name = "${element(var.COMPONENTS, count.index)}-${var.ENV}"
   }
 }
 
@@ -12,7 +12,7 @@ resource "aws_instance" "instances" {
 
 resource "aws_route53_record" "records" {
   count                     = local.LENGTH
-  name                      = element(var.COMPONENTS, count.index)
+  name                      = "${element(var.COMPONENTS, count.index)}-${var.ENV}"
   type                      = "A"
   zone_id                   = "Z058717311P9VJRR1I7TD"
   ttl                       = 300
